@@ -7,15 +7,23 @@ import {SidebarHeaderLogoComponent} from './components/sidebar-header-logo/sideb
 import {
   SidebarHeaderDesktopNavComponent
 } from './components/sidebar-header-desktop-nav/sidebar-header-desktop-nav.component';
+import {StoreModule} from "@ngrx/store";
+import * as fromTheme from './store/reducers/theme.reducer';
+import {RouterModule} from "@angular/router";
+import {
+  SidebarHeaderDesktopNavUserMenuComponent
+} from "./components/sidebar-header-desktop-nav-user-menu/sidebar-header-desktop-nav-user-menu.component";
 
 
 
 @NgModule({
-  declarations: [SidebarNavComponent, SidebarHeaderComponent, SidebarHeaderLogoComponent, SidebarHeaderDesktopNavComponent],
-  exports: [SidebarNavComponent, SidebarHeaderComponent, SidebarHeaderLogoComponent, SidebarHeaderDesktopNavComponent],
+  declarations: [SidebarNavComponent, SidebarHeaderComponent, SidebarHeaderLogoComponent, SidebarHeaderDesktopNavComponent, SidebarHeaderDesktopNavUserMenuComponent],
+  exports: [SidebarNavComponent, SidebarHeaderComponent, SidebarHeaderLogoComponent, SidebarHeaderDesktopNavComponent, SidebarHeaderDesktopNavUserMenuComponent],
   imports: [
     CommonModule,
-    IonicModule
+    IonicModule,
+    RouterModule,
+    StoreModule.forFeature(fromTheme.themeFeatureKey, fromTheme.reducer),
   ]
 })
 export class SharedModule { }

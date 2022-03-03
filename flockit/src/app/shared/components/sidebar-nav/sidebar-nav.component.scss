@@ -1,0 +1,19 @@
+.animate-width {
+  transition: width 0.5s;
+}
+@media (min-width: 768px) {
+  .nav-expanded {
+    width: 16rem !important;
+  }
+  .nav-collapsed {
+    width: 5rem !important;
+  }
+}
+
+.cm-nav-item {
+  @apply text-gray-400 hover:bg-white hover:bg-opacity-5 flex-shrink-0 inline-flex items-center justify-center px-4 h-14 rounded-lg;
+}
+.cm-nav-item-active {
+  @apply bg-white bg-opacity-5 text-white flex-shrink-0 inline-flex items-center justify-center px-4 h-14 rounded-lg text-cyan-400;
+}
+

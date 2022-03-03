@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router, UrlTree} from "@angular/router";
 
 @Component({
   selector: 'app-sidebar-header',
@@ -8,8 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class SidebarHeaderComponent implements OnInit {
 
   menuState = false;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {}
+  isActive(instruction: string | UrlTree): boolean {
+    return this.router.isActive(instruction, false);
+  }
+  logoutUser() {
 
+  }
 }

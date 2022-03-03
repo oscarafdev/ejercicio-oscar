@@ -1,8 +1,14 @@
 <div class="h-screen overflow-hidden bg-gray-100 flex flex-col bg-darkBlue custom-bg">
+  <!-- Top nav-->
   <app-sidebar-header></app-sidebar-header>
+  <!-- Bottom section -->
   <div class="min-h-0 flex-1 flex">
+    <!-- Narrow sidebar-->
+    <app-sidebar-nav class="hidden md:block md:flex-shrink-0 md:overflow-y-auto  border-r border-gray-100 border-opacity-10"></app-sidebar-nav>
+    <!-- Main area -->
     <main class="min-w-0 flex-1 text-white overflow-auto">
       <router-outlet id="content"></router-outlet>
     </main>
+
   </div>
 </div>

@@ -1,14 +1,47 @@
-<header class="flex-shrink-0 relative h-16 flex items-center">
+<header class="flex-shrink-0 relative h-16 flex items-center justify-between">
 
   <app-sidebar-header-logo></app-sidebar-header-logo>
   <div class="absolute inset-y-0 right-0 pr-4 flex items-center sm:pr-6 md:hidden">
-    <ion-button type="button" aria-expanded="false" class="mr-2 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600">
+    <button (click)="menuState = !menuState" type="button" aria-expanded="false" class="mr-2 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600">
       <span class="sr-only">Abrir menú principal</span>
       <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
-    </ion-button>
+    </button>
   </div>
 
   <app-sidebar-header-desktop-nav class="hidden md:min-w-0 md:flex md:items-center md:justify-beetween"></app-sidebar-header-desktop-nav>
+
+  <div class="fixed inset-0 z-40 md:hidden" *ngIf="menuState">
+    <div class="hidden sm:block sm:fixed sm:inset-0 md:hidden" aria-hidden="true">
+      <div class="absolute inset-0 bg-gray-600 opacity-75"></div>
+    </div>
+
+    <nav class="fixed {{menuState ? 'transition ease-out duration-100 opacity-0 scale-95 transform opacity-100 scale-100' : 'transition ease-in duration-75 transform opacity-0 scale-0'}} z-40 inset-0 h-full w-full bg-white sm:inset-y-0 sm:left-auto sm:right-0 sm:max-w-sm sm:w-full sm:shadow-lg md:hidden" aria-label="Global">
+      <div class="h-16 flex items-center justify-between px-4 sm:px-6">
+        API Provincias
+        <button type="button" (click)="menuState = !menuState" class="-mr-2 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="max-w-8xl mx-auto py-3 px-2 sm:px-4">
+
+        <a routerLink="/home" class="block rounded-md py-2 pl-5 px-3 text-base font-medium hover:bg-gray-100"
+           [class.text-gray-900]="isActive('/provinces')"
+           [class.text-gray-500]="!isActive('/provinces')" (click)="menuState = false">Provincias</a>
+
+        <button class="block rounded-md py-2 pl-5 pr-3 text-base text-gray-500 font-medium hover:bg-gray-100"
+                (click)="logoutUser()">Cerrar Sesion</button>
+
+
+
+      </div>
+
+    </nav>
+
+  </div>
 </header>
