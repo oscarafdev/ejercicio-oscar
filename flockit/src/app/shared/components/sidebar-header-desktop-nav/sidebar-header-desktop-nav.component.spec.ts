@@ -21,4 +21,9 @@ describe('SidebarHeaderDesktopNavComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should nav element create', () => {
+    const app = fixture.nativeElement;
+    const navElement = app.querySelectorAll('nav');
+    expect(navElement.length).toEqual(1);
+  });
 });

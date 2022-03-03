@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { SidebarHeaderComponent } from './sidebar-header.component';
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('SidebarHeaderComponent', () => {
   let component: SidebarHeaderComponent;
@@ -10,7 +11,10 @@ describe('SidebarHeaderComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ SidebarHeaderComponent ],
-      imports: [IonicModule.forRoot()]
+      imports: [
+        IonicModule.forRoot(),
+        RouterTestingModule
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(SidebarHeaderComponent);

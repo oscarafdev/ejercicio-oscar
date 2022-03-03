@@ -11,3 +11,8 @@ export const changeMenuMode = createAction(
   '[Layout] Change Menu Mode',
   props<{ mode: string }>()
 );
+
+export const searchProvinces = createAction(
+  '[Provinces] Search Province',
+  props<{ query?: string }>()
+);

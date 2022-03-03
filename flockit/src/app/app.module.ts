@@ -5,12 +5,13 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {SharedModule} from './shared/shared.module';
 import {SidebarLayoutComponent} from "./shared/layouts/sidebar-layout/sidebar-layout.component";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { StoreModule } from '@ngrx/store';
+import {LogInterceptor} from "./shared/interceptors/log.interceptor";
 
 @NgModule({
   declarations: [AppComponent, SidebarLayoutComponent],
@@ -25,5 +26,6 @@ import { StoreModule } from '@ngrx/store';
     StoreModule.forRoot({}, {})
   ],
   bootstrap: [AppComponent],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: LogInterceptor, multi: true}]
 })
 export class AppModule {}
