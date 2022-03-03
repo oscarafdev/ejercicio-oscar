@@ -10,7 +10,7 @@ export class ProvincesService {
   private apiUrl = environment.apiUrl;
   constructor(private _httpClient: HttpClient) { }
 
-  getProvinces() {
-    return this._httpClient.get<IProvincesResponse>(`${this.apiUrl}/provincias`);
+  getProvinces(query?: string) {
+    return this._httpClient.get<IProvincesResponse>(`${this.apiUrl}/provincias${query ? '?nombre='+query : ''}`);
   }
 }

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+import {Store} from "@ngrx/store";
+import {AppState} from "../../../app-state";
+import * as fromTheme from './../../store/actions/theme.actions';
+import {selectQuery} from "../../store/selectors/theme.selectors";
 @Component({
   selector: 'app-sidebar-header-desktop-nav',
   templateUrl: './sidebar-header-desktop-nav.component.html',
@@ -7,8 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarHeaderDesktopNavComponent implements OnInit {
 
-  constructor() { }
+  query = '';
+  constructor(private store: Store<AppState>) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.store.select(selectQuery).subscribe(query => {
+      this.query = JSON.parse(JSON.stringify(query));
+    })
+  }
 
+  searchProvinces(event) {
+    console.log(event)
+    this.store.dispatch(fromTheme.searchProvinces({ query: event }));
+  }
 }

@@ -13,17 +13,22 @@ import {RouterModule} from "@angular/router";
 import {
   SidebarHeaderDesktopNavUserMenuComponent
 } from "./components/sidebar-header-desktop-nav-user-menu/sidebar-header-desktop-nav-user-menu.component";
+import {FormsModule} from "@angular/forms";
+import {EffectsFeatureModule, EffectsModule} from "@ngrx/effects";
+import {ProvincesEffects} from "./store/effects/provinces.effects";
 
 
 
 @NgModule({
   declarations: [SidebarNavComponent, SidebarHeaderComponent, SidebarHeaderLogoComponent, SidebarHeaderDesktopNavComponent, SidebarHeaderDesktopNavUserMenuComponent],
   exports: [SidebarNavComponent, SidebarHeaderComponent, SidebarHeaderLogoComponent, SidebarHeaderDesktopNavComponent, SidebarHeaderDesktopNavUserMenuComponent],
-  imports: [
-    CommonModule,
-    IonicModule,
-    RouterModule,
-    StoreModule.forFeature(fromTheme.themeFeatureKey, fromTheme.reducer),
-  ]
+    imports: [
+        CommonModule,
+        IonicModule,
+        RouterModule,
+        StoreModule.forFeature(fromTheme.themeFeatureKey, fromTheme.reducer),
+        EffectsModule.forFeature([ProvincesEffects]),
+        FormsModule,
+    ]
 })
 export class SharedModule { }

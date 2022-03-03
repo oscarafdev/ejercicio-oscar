@@ -14,3 +14,12 @@ export const selectMenuMode = createSelector(
   selectThemeState,
   (state: fromTheme.State) => state.menuMode
 );
+export const selectQuery = createSelector(
+  selectThemeState,
+  (state: fromTheme.State) => state.query
+);
+export const selectProvinces = createSelector(
+  selectThemeState,
+  (state: fromTheme.State) => state.provinces
+);
+
