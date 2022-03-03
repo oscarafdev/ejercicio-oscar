@@ -15,12 +15,11 @@ export class SidebarHeaderDesktopNavComponent implements OnInit {
 
   ngOnInit() {
     this.store.select(selectQuery).subscribe(query => {
-      this.query = JSON.parse(JSON.stringify(query));
-    })
+      this.query = query;
+    });
   }
 
   searchProvinces(event) {
-    console.log(event)
     this.store.dispatch(fromTheme.searchProvinces({ query: event }));
   }
 }

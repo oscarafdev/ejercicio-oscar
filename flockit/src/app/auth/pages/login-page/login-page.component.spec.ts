@@ -1,27 +1,31 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { SidebarHeaderComponent } from './sidebar-header.component';
-import {RouterTestingModule} from '@angular/router/testing';
-import {AngularFireAuthModule} from '@angular/fire/compat/auth';
+import { LoginPageComponent } from './login-page.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AngularFireModule} from '@angular/fire/compat';
 import {environment} from '../../../../environments/environment';
+import {RouterTestingModule} from '@angular/router/testing';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
-describe('SidebarHeaderComponent', () => {
-  let component: SidebarHeaderComponent;
-  let fixture: ComponentFixture<SidebarHeaderComponent>;
+describe('LoginPageComponent', () => {
+  let component: LoginPageComponent;
+  let fixture: ComponentFixture<LoginPageComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ SidebarHeaderComponent ],
+      declarations: [ LoginPageComponent ],
       imports: [
         IonicModule.forRoot(),
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
+        MatSnackBarModule,
+        FormsModule,
+        ReactiveFormsModule,
         AngularFireModule.initializeApp(environment.firebase)
       ]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SidebarHeaderComponent);
+    fixture = TestBed.createComponent(LoginPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
