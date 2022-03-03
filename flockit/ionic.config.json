@@ -1,0 +1,7 @@
+{
+  "name": "flockit",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
