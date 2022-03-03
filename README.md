@@ -12,11 +12,10 @@
 - Firebase Firestore
 
 ## Instrucciones
-- Utilizar 
+- Instalar las dependencias del proyecto
 ```
 npm i
 ```
-para instalar las dependencias del proyecto.
 
 - Levantar el proyecto con:
 ```
