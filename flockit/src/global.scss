@@ -24,3 +24,11 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+
+.custom-bg {
+  background-image: radial-gradient(circle at center , rgba(0, 56, 241, 0.20) 0%, rgba(1, 12, 30, 1) 60%);
+}

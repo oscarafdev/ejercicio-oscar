@@ -1,15 +1,22 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {SidebarLayoutComponent} from './shared/layouts/sidebar-layout/sidebar-layout.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
-    pathMatch: 'full'
-  },
-  {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+    component: SidebarLayoutComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: '/provinces',
+        pathMatch: 'full'
+      },
+      {
+        path: 'provinces',
+        loadChildren: () => import('./provinces/provinces.module').then( m => m.ProvincesModule)
+      }
+    ]
   }
 ];
 
